@@ -18,7 +18,7 @@ CTEST(game_suite, getRandomMatchesCount1) {
     ASSERT_TRUE(count <= 10 && count > 0);
     //Восстанавливаем stdout
     fclose(stdout);
-    stdout = fopen("/dev/tty", "w"); // Linux
+    //stdout = fopen("/dev/tty", "w"); // Linux
 }
 
 // CTEST(game_suite, getRandomMatchesCount2) {
