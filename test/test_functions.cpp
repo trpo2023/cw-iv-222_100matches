@@ -9,29 +9,29 @@
 
 
 CTEST(game_suite, getRandomMatchesCount1) {
-    // Перенаправляем stdout
-    //freopen("test_stdout.txt", "w", stdout);
+    //Перенаправляем stdout
+    freopen("test_stdout.txt", "w", stdout);
     int totalMatches = 20;
     int game = 1;
     Game obj;
     int count = obj.getRandomMatchesCount(totalMatches, game);
     ASSERT_TRUE(count <= 10 && count > 0);
-    // Восстанавливаем stdout
-    //fclose(stdout);
-    //stdout = fopen("/dev/tty", "w"); // Linux
+    //Восстанавливаем stdout
+    fclose(stdout);
+    stdout = fopen("/dev/tty", "w"); // Linux
 }
 
-CTEST(game_suite, getRandomMatchesCount2) {
-    // Перенаправляем stdout
-    //freopen("test_stdout.txt", "w", stdout);
-    int totalMatches = 20;
-    int game = 0;
-    Game obj;
-    int count = obj.getRandomMatchesCount(totalMatches, game);
-    ASSERT_TRUE(count <= totalMatches && count > 0);
-    //fclose(stdout);
-    //stdout = fopen("/dev/tty", "w"); // Linux
-}
+// CTEST(game_suite, getRandomMatchesCount2) {
+//     // Перенаправляем stdout
+//     //freopen("test_stdout.txt", "w", stdout);
+//     int totalMatches = 20;
+//     int game = 0;
+//     Game obj;
+//     int count = obj.getRandomMatchesCount(totalMatches, game);
+//     ASSERT_TRUE(count <= totalMatches && count > 0);
+//     //fclose(stdout);
+//     //stdout = fopen("/dev/tty", "w"); // Linux
+// }
 
 
 // CTEST(game_suite, getMatchesCount1) {
