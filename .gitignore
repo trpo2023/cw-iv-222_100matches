@@ -15,3 +15,4 @@ obj/test/*.d
 
 bin/main
 bin/test
+bin/test_stdout.txt
