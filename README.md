@@ -7,8 +7,6 @@
 <p align = "center"><https://p7.hiclipart.com/preview/636/427/634/5bfac963662d9.jpg" height = "500"/> </p>
 
 
-<h3 align = "center"> 100 Matches </h3>
-
 <h4 align = "center"> General idea of the problem </h4>
 <p align = "left">The idea of ​​the game "100 Matches" is to create a program, where two players take turns to pick up from 1 to 10 matches out of 100 on the gaming field. The player, who takes the last match, loses the game.</p>
 
