@@ -10,15 +10,20 @@
 
 CTEST(game_suite, getRandomMatchesCount1) {
     //Перенаправляем stdout
-    freopen("test_stdout.txt", "w", stdout);
+    FILE *f = freopen("test_stdout.txt", "w", stdout);
+    if (f == NULL) {
+        printf("Error opening file!\n");
+        exit(1);
+    }
     int totalMatches = 20;
     int game = 1;
     Game obj;
     int count = obj.getRandomMatchesCount(totalMatches, game);
     ASSERT_TRUE(count <= 10 && count > 0);
+    fflush(stdout);
     //Восстанавливаем stdout
-    fclose(stdout);
-    //stdout = fopen("/dev/tty", "w"); // Linux
+    fclose(f);
+    stdout = fopen("/dev/tty", "w"); // Linux
 }
 
 // CTEST(game_suite, getRandomMatchesCount2) {
