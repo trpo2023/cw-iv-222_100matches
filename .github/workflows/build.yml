@@ -1,4 +1,4 @@
-name: Build
+	name: Build
 
 on: push
 
@@ -13,4 +13,4 @@ jobs:
         run: git ls-files *.{c,h} | xargs clang-format -i --verbose && git diff --exit-code
 
       - name: Build application
-        run: make && make test
+        run: sudo apt intasll g++-11 && make && make test
