@@ -5,7 +5,6 @@
 
 Game::Game()
 {
-    printf("\E[H\E[2J");
     totalMatches = 100;
     isFirstPlayer = true;
 }
@@ -16,7 +15,7 @@ void Game::start()
     srand(time(0));
     while (true) 
     {
-        gameMode = selectGameMode();
+        gameMode = selectGameMode(1);
         remainingMatches = totalMatches;
 
         if (gameMode == 1) 
@@ -95,28 +94,32 @@ void Game::start()
 }
 
 
-int Game::selectGameMode() {
-    std::cout << "\nChoose a mode:\n";
-    std::cout << "1. Let's play together\n";
-    std::cout << "2. Game with a computer\n";
-    std::cout << "\n";
+int Game::selectGameMode(int game) {
+    mode = 0;
+    if (game)
+    {
+        std::cout << "\nChoose a mode:\n";
+        std::cout << "1. Let's play together\n";
+        std::cout << "2. Game with a computer\n";
+        std::cout << "\n";
+    }
 
-
-    while (true) {
-        std::getline(std::cin, str);
-        if (isdigit(str[0])) {
-            mode = str[0] - '0';
-            if ((mode == 1) || (mode == 2)) {
-                break;
+        while (true) {
+            std::getline(std::cin, str);
+            if (isdigit(str[0])) {
+                mode = str[0] - '0';
+                if ((mode == 1) || (mode == 2)) {
+                    break;
+                } else {
+                    std::cout << "Error mode. Try again!\n";
+                    continue;
+                }
             } else {
                 std::cout << "Error mode. Try again!\n";
                 continue;
             }
-        } else {
-            std::cout << "Error mode. Try again!\n";
-            continue;
         }
-    }
+    
     return mode;
 }
 
@@ -169,7 +172,7 @@ bool Game::checkInput(int count, int totalMatches, int game) {
 
 
 std::string Game::getPlayerName(int game) {
-    std::string name;
+    std::string name = "default";
     if (game) {
         std::cout << "Enter a name: ";
         std::cin >> name;

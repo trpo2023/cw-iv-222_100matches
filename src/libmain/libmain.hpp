@@ -14,7 +14,7 @@ public:
     bool isFirstPlayer;
     std::string str, firstPlayerName, secondPlayerName;
 
-    int selectGameMode(); // протестировано
+    int selectGameMode(int game); // протестировано
     int getMatchesCount(int totalMatches, std::string playerName, int game); // протестировано
     int getRandomMatchesCount(int totalMatches, int game); // протестировано
     bool checkInput(int count, int totalMatches, int game); // протестировано
